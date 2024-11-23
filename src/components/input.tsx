@@ -5,12 +5,12 @@ interface MyComponentProps {
   setValueInp: (value: string) => void;
 }
 
-const Input: React.FC<MyComponentProps> = ({valueInp, setValueInp}) => {
-    return (
-        <input className='inp' value={valueInp} onChange={(e) => setValueInp(e.target.value)} placeholder='поиск'>
-            
-        </input>
-    );
+const Input: React.FC<MyComponentProps> = ({ valueInp, setValueInp }) => {
+  return (
+    <input className='inp' value={valueInp} onChange={(e) => setValueInp(e.target.value)} placeholder='поиск'>
+
+    </input>
+  );
 };
 
 export default Input;

@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../hooks/redux';
-import { fetchMovie } from '../store/reducers/ActionsCreators';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Search from '../components/Search';
 import ListItem from '../components/ListItem';
 
-const HomePage = () => {
+export const HomePage = () => {
     const [valueInp, setValueInp] = useState('')
     const [data, setData] = useState(valueInp)
 
@@ -18,18 +16,16 @@ const HomePage = () => {
     }, []);
 
     useEffect(() => {
-        if(data) { 
+        if (data) {
             localStorage.setItem('data', data);
         }
     }, [data]);
 
     return (
         <div>
-            <Search setData={setData} data={data} valueInp={valueInp} setValueInp={setValueInp}/>
+            <Search setData={setData} data={data} valueInp={valueInp} setValueInp={setValueInp} />
             <Link className='likes' to={'Likes'}>Избранное</Link>
-            <ListItem data={data}/>
+            <ListItem data={data} />
         </div>
     );
 };
-
-export default HomePage;

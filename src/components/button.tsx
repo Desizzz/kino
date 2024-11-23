@@ -5,7 +5,7 @@ interface PropsBtn {
     children?: string;
 }
 
-const Button: React.FC<PropsBtn> = ({ PushData ,children }) => {
+const Button: React.FC<PropsBtn> = ({ PushData, children }) => {
     return (
         <button onClick={PushData} className='btn'>
             {children}
