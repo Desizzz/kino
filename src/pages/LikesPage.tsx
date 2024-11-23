@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { Link } from 'react-router-dom';
 import { movieSlice } from '../store/reducers/getMovie';
 
-const LikesPage = () => {
-    let {likeMovie} = useAppSelector(state => state.movieReducer)
+export const LikesPage = () => {
+    let { likeMovie } = useAppSelector(state => state.movieReducer)
     const dispatch = useAppDispatch()
-    
+
     useEffect(() => {
         dispatch(movieSlice.actions.addLike())
     }, []);
-            
+
     const remLike = (movie: any) => {
         dispatch(movieSlice.actions.removeLike(movie));
     }
-    
+
     return (
         <div>
             <Link className='likes' to={'/'}>Home</Link>
@@ -30,5 +30,3 @@ const LikesPage = () => {
         </div>
     );
 };
-
-export default LikesPage;
