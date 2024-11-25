@@ -12,7 +12,6 @@ const ListItem: React.FC<PropsList> = ({ data }) => {
     const [sorting, setSorting] = useState('noSort')
     const { movies, loading, error, movieMore } = useAppSelector(state => state.movieReducer)
     const dispatch = useAppDispatch()
-    const sortedMovies = [...movieMore]
 
     useEffect(() => {
         dispatch(fetchMovie(data))
@@ -26,29 +25,16 @@ const ListItem: React.FC<PropsList> = ({ data }) => {
         })
     }, [movies])
 
-
-    if (sorting === 'new') {
-        sortedMovies.sort((a, b) => {
-            console.log(movieMore)
-            return b.Year.localeCompare(a.Year)
-        })
-
-    } else if (sorting === 'old') {
-        sortedMovies.sort((a, b) => {
-            console.log(a.Year, b.Year)
-            return a.Year.localeCompare(b.Year)
-        })
-
-    } else if (sorting === 'reting') {
-        sortedMovies.sort((a, b) => {
-            console.log(a.imdbRating, b.imdbRating)
-            return b.imdbRating.localeCompare(a.imdbRating)
-        })
+    const sortMap: any = {
+        new: (a: any, b: any) => b.Year.localeCompare(a.Year),
+        old: (a: any, b: any) => a.Year.localeCompare(b.Year),
+        reting: (a: any, b: any) => b.imdbRating.localeCompare(a.imdbRating),
+        onSort: () => 0
     }
 
+    if (loading && data) <p>Loading...</p>
     return (
         <>
-            {loading && data && <p>Loading...</p>}
             {error && <h1>нет данных</h1>}
             <select value={sorting} onChange={(e) => setSorting(e.target.value)}>
                 <option value='new'>Новые</option>
@@ -56,7 +42,7 @@ const ListItem: React.FC<PropsList> = ({ data }) => {
                 <option value="reting">Рейтинг</option>
                 <option value="noSort">Без сортировки</option>
             </select>
-            {movieMore && sortedMovies.map(mov => (
+            {movieMore && [...movieMore].sort(sortMap[sorting]).map(mov => (
                 <div className='itemMovie' key={mov.imdbID}>
                     <Link className='title' to={`CartMoviePage/${mov.imdbID}`}>
                         <img src={mov.Poster} alt={mov.Title} />

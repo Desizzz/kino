@@ -4,7 +4,7 @@ import { HomePage } from './pages/HomePage';
 import CartMoviePage from './pages/CartMoviePage';
 import { LikesPage } from './pages/LikesPage';
 
-function App() {
+export function App() {
   return (
     <Routes>
       <Route path='/' element={<HomePage />} />
@@ -13,5 +13,3 @@ function App() {
     </Routes>
   );
 }
-
-export default App;

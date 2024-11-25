@@ -11,9 +11,8 @@ const CartMoviePage = () => {
 
     const dispatch = useAppDispatch()
     const addInLike = (movie: any) => {
-        if (!likeMovie.includes(movie)) {
-            dispatch(movieSlice.actions.addLike(movie))
-        } else return
+        if (likeMovie.includes(movie)) return
+        dispatch(movieSlice.actions.addLike(movie))
     }
 
     useEffect(() => {

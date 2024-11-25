@@ -16,9 +16,8 @@ export const HomePage = () => {
     }, []);
 
     useEffect(() => {
-        if (data) {
-            localStorage.setItem('data', data);
-        }
+        if (!data) return
+        localStorage.setItem('data', data);
     }, [data]);
 
     return (
