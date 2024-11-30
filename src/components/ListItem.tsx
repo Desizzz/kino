@@ -35,23 +35,56 @@ const ListItem: React.FC<PropsList> = ({ data }) => {
     if (loading && data) <p>Loading...</p>
     return (
         <>
-            {error && <h1>нет данных</h1>}
-            <select value={sorting} onChange={(e) => setSorting(e.target.value)}>
+            <select className='ml-4' value={sorting} onChange={(e) => setSorting(e.target.value)}>
                 <option value='new'>Новые</option>
                 <option value='old'>Старые</option>
                 <option value="reting">Рейтинг</option>
                 <option value="noSort">Без сортировки</option>
             </select>
-            {movieMore && [...movieMore].sort(sortMap[sorting]).map(mov => (
-                <div className='itemMovie' key={mov.imdbID}>
-                    <Link className='title' to={`CartMoviePage/${mov.imdbID}`}>
-                        <img src={mov.Poster} alt={mov.Title} />
-                        <h3 >{mov.Title}</h3>
-                    </Link>
-                </div>
-            ))}
+            {error && <h1>Нет данных</h1>}
+            <div className='flex flex-wrap w-screen'>
+                {movieMore && [...movieMore].sort(sortMap[sorting]).map(mov => (
+                    <div key={mov.imdbID} className="w-1/2 container px-5 py-8 " >
+                        <div className="flex flex-wrap -m-4" >
+                            <div className=" p-4 md:w-1/3">
+                                <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden" >
+                                    <img className="w-full object-cover object-center" src={mov.Poster} alt="blog" />
+                                    <div className="p-6">
+                                        <Link className='title' to={`CartMoviePage/${mov.imdbID}`}>
+                                            <h1 className="title-font text-lg font-medium text-gray-900 mb-3">{mov.Title}</h1>
+                                            <p className="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+                                            <div className="flex items-center flex-wrap ">
+                                                <a className="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" >
+                                                    <p>Learn More</p>
+                                                    <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" strokeLinejoin="round">
+                                                        <path d="M5 12h14"></path>
+                                                        <path d="M12 5l7 7-7 7"></path>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </>
+
+
     );
 };
 
 export default ListItem;
+// <>
+//     {error && <h1>нет данных</h1>}
+//     {movieMore && [...movieMore].sort(sortMap[sorting]).map(mov => (
+//         <div className='itemMovie' key={mov.imdbID}>
+//             <Link className='title' to={`CartMoviePage/${mov.imdbID}`}>
+//                 <img src={mov.Poster} alt={mov.Title} />
+//                 <h3 >{mov.Title}</h3>
+//             </Link>
+//         </div>
+//     ))}
+// </>

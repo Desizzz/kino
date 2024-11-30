@@ -20,8 +20,7 @@ const Search: React.FC<PropsSearch> = ({ setData, valueInp, setValueInp }) => {
     }
     return (
         <>
-            <Input valueInp={valueInp} setValueInp={setValueInp} />
-            <Button PushData={PushData}>Искать</Button>
+            <Input valueInp={valueInp} PushData={PushData} setValueInp={setValueInp} />
         </>
     );
 };

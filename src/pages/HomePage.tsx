@@ -23,7 +23,7 @@ export const HomePage = () => {
     return (
         <div>
             <Search setData={setData} data={data} valueInp={valueInp} setValueInp={setValueInp} />
-            <Link className='likes' to={'Likes'}>Избранное</Link>
+
             <ListItem data={data} />
         </div>
     );
