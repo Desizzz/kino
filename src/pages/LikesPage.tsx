@@ -18,7 +18,9 @@ export const LikesPage = () => {
 
     return (
         <div>
-            <Link className='likes' to={'/'}><CgArrowLeftR /></Link>
+            <div className='ml-5'>
+                <Link className='likes' to={'/'}><CgArrowLeftR /></Link>
+            </div>
             <div className='flex flex-wrap w-screen'>
                 {likeMovie && likeMovie.map(mov => (
                     <div key={mov.imdbID} className="w-1/2 container px-5 py-8 " >
@@ -27,20 +29,18 @@ export const LikesPage = () => {
                                 <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden" >
                                     <img className="w-full object-cover object-center" src={mov.Poster} alt="blog" />
                                     <div className="p-6">
-                                        <Link className='title' to={`CartMoviePage/${mov.imdbID}`}>
-                                            <h1 className="title-font text-lg font-medium text-gray-900 mb-3">{mov.Title}</h1>
-                                            <p className="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-                                            <div className="flex items-center flex-wrap ">
-                                                <a className="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" >
-                                                    <p>Learn More</p>
-                                                    <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                        <path d="M5 12h14"></path>
-                                                        <path d="M12 5l7 7-7 7"></path>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                            <div className='text-red-400' onClick={() => remLike(mov)}> удалить </div>
-                                        </Link>
+                                        <h1 className="title-font text-lg font-medium text-gray-900 mb-3">{mov.Title}</h1>
+                                        <p className="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+                                        <div className="flex items-center flex-wrap ">
+                                            <a className="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" >
+                                                <p>Learn More</p>
+                                                <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M5 12h14"></path>
+                                                    <path d="M12 5l7 7-7 7"></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <div className='text-red-400' onClick={() => remLike(mov)}> удалить </div>
                                     </div>
                                 </div>
                             </div>

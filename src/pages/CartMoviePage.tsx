@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { fetchOneMovie } from '../store/reducers/ActionsCreators';
 import { movieSlice } from '../store/reducers/getMovie';
@@ -23,7 +23,7 @@ const CartMoviePage = () => {
         <div>
             {loading && <p>Loading...</p>}
             {error && <p>Error: {error}</p>}
-            {movie && <h2>{ }</h2>}
+            <Link to="/">Home</Link>
 
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-24 mx-auto flex flex-wrap">

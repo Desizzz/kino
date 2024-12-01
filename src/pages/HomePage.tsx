@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Search from '../components/Search';
-import ListItem from '../components/ListItem';
+import { Search } from '../components/Search';
+import { ListItem } from '../components/ListItem';
 
 export const HomePage = () => {
     const [valueInp, setValueInp] = useState('')
