@@ -44,6 +44,7 @@ export const movieSlice = createSlice({
         },
 
         addItem(state, action) {
+            if (state.movieMore.includes(action.payload)) return
             state.movieMore.push(action.payload)
         },
 

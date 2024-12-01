@@ -1,3 +1,24 @@
+body {
+  background: #d6d6d6;
+}
+
+/* select {
+  background: inherit;
+} */
+
+select {
+  border: none;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+option {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #f0f0f0;
+}
+
 .btn {
   width: 80px;
   height: 70px;
@@ -44,7 +65,6 @@
 .likes {
   font-size: 32px;
   color: #272727;
-  margin-left: 20px;
   text-decoration: none;
 }
 

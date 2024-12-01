@@ -10,7 +10,7 @@ interface PropsSearch {
     setValueInp: (value: string) => void
 }
 
-const Search: React.FC<PropsSearch> = ({ setData, valueInp, setValueInp }) => {
+export const Search: React.FC<PropsSearch> = ({ setData, valueInp, setValueInp }) => {
     const dispatch = useAppDispatch()
 
     const PushData = () => {
@@ -24,5 +24,3 @@ const Search: React.FC<PropsSearch> = ({ setData, valueInp, setValueInp }) => {
         </>
     );
 };
-
-export default Search;

@@ -7,7 +7,7 @@ export const fetchMovie = (params: string) => async (dispatch: AppDispatch) => {
     try {
         dispatch(movieSlice.actions.moviesFetching())
         const responce = await axios.get(`http://www.omdbapi.com/?apikey=5aa95082&s=${params}`)
-        if (!responce.data.Search.length && params) throw new Error
+        if (!responce.data.Search.length && params) throw new Error()
         dispatch(movieSlice.actions.moviesFetchingSuccess(responce.data.Search))
     } catch (e: any) {
         dispatch(movieSlice.actions.moviesFetchingError(e.message));
